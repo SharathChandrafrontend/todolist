@@ -1,23 +1,48 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Todolistref from './Todolistref'
+import React, { useEffect } from 'react';
 function App() {
+  
+  var [todo,setTodo]= React.useState([])
+
+
+
+    var firstRef = React.useRef()
+    var  lasttRef = React.useRef()
+    var  ageRef = React.useRef()
+  
+    useEffect(()=>{
+      firstRef.current.focus()
+    },[])
+
+  
+
+
+ function checkEnter(e){
+  if(e.key==="Enter")
+  lasttRef.current.focus()
+ }
+
+
+  
+ 
+  function checkNext(e){
+    
+  if(e.key==="Enter")
+  ageRef.current.focus()
+ }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello Creating a new Todolist</h1>
+      <input type='text' ref= { firstRef} onKeyUp={(ev)=>{checkEnter(ev)}}/>
+      <br/>
+      <input type='text' ref={lasttRef} onKeyUp={(ev)=>{checkNext(ev)}} />
+      <br/>
+      
+      <Todolistref ref={ageRef}></Todolistref>
     </div>
   );
 }
