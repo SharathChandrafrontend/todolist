@@ -4,7 +4,7 @@ import Todolistref from './Todolistref'
 import React, { useEffect } from 'react';
 function App() {
   
-  var [todo,setTodo]= React.useState([])
+  var [todo,setTodo]= React.useState(["Sharath","Raj"])
 
 
 
